@@ -1,0 +1,23 @@
+I have a dataset as below
+
+date@#close@#volume@#open@#high@#low
+9/23/16@#24.05@#56837@#24.13@#24.22@#23.88
+9/22/16@#24.1@#56675@#23.49@#24.18@#23.49
+9/21/16@#23.38@#70925@#23.21@#23.58@#23.025
+9/20/16@#23.07@#35429@#23.17@#23.264@#22.9
+
+Want to create a table which handle multiple delimiter(@#)
+
+Solution:
+
+CREATE EXTERNAL TABLE IF NOT EXISTS stocks_multi (
+date STRING,
+close STRING,
+volume STRING,
+open FLOAT,
+high FLOAT,
+low FLOAT,
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe'
+WITH SERDEPROPERTIES ("field.delim"="@#")
+LOCATION '/user/hirw/stocks-multi';
