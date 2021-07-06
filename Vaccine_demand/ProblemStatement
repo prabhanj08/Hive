@@ -1,0 +1,19 @@
+we have 3 hive tables, write query to find supply and demand per vaccination site
+
+user_table,vaccine_availabity, vaccine_site
+
+user_table
+	-- uid
+	-- zipcode
+
+vaccine_availabity
+	-- site_id
+	-- no_of_doses
+	
+vaccine_site
+	-- site_id
+	-- zip_code
+  
+  
+ # one vaccine site might contains multiple zip codes
+ 
