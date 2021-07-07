@@ -1,0 +1,3 @@
+select sq.site_id,sq.total_uid,va.no_of_doses from vaccine_availabity va LEFT JOIN
+(SELECT vs.site_id,count(us.uid) as total_uid FROM vaccine_site vs LEFT JOIN user_table ut on ut.zip_code = vs.zip_code group by vs.zip_code) sq  ON sq.site_id = va.site_id
+ 
